@@ -1,0 +1,46 @@
+在页面中引入js的两种方法(推荐)
+
+两种方式：在页面中嵌入js,引用外部js文件
+
+1.把script元素写在</body>前面，script元素的内容就是jsdiam
+
+2.引用外部js文件
+
+引用外部js文件，可以使js文件和html文件相分离，一个js文件可被多个
+html文件使用，维护起来也更方便
+
+
+用法是把script元素的src属性，设置为js文件的url即可
+<script src="js/test.js"></script>
+
+3.script元素在HTML文件中的位置
+
+如果把script元素放在head元素里，如下
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="xxx.js"></script>
+</head>
+<body>
+<!--页面内容-->
+</body>
+</html>
+
+这样做的话，待浏览器经过下载，解析，执行完js文件之后，才会呈现页面内容，
+如果一个页面需要很多个js文件，那么浏览器可能会出现短暂的"白板"，用户体验不好
+
+
+所以，我们应该把js文件放在</body>的前面，这样浏览器会先展现页面给用户
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<!--<script src="xxx.js"></script>-->
+</head>
+<body>
+<!--页面内容-->
+<script src="xxx.js"></script>
+</body>
+</html>
